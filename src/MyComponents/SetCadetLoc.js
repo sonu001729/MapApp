@@ -41,7 +41,6 @@ const SetCadetLoc = () => {
       { id: 1, latitude: 18.922557, longitude: 72.834432 },
       { id: 2, latitude: 26.621055, longitude: 80.850662 },
       { id: 3, latitude: 18.398745, longitude: 76.563557 },
-      // Add more cadet locations as needed
     ];
 
     getUserLocation();
