@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import MapCall from './MapCall';
 
-const calculateDistance = (lat1, lon1, lat2, lon2) => {
+const calculateDistance = (lat1, lon1, lat2, lon2) => {// calculating the distance between two locations
   const R = 6371; // Radius of the Earth in kilometers
   const dLat = deg2rad(lat2 - lat1);
   const dLon = deg2rad(lon2 - lon1);
 
-  const a =
+  const a =// just math
     Math.sin(dLat / 2) * Math.sin(dLat / 2) +
     Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
   const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
@@ -15,7 +15,7 @@ const calculateDistance = (lat1, lon1, lat2, lon2) => {
   return distance.toFixed(2); // Distance rounded to 2 decimal places
 };
 
-const deg2rad = (degrees) => {
+const deg2rad = (degrees) => {// converts degree into radian
   return degrees * (Math.PI / 180);
 };
 
@@ -51,12 +51,14 @@ const SetCadetLoc = () => {
     const calculateDistances = () => {
       if (userLocation && cadetLocations.length > 0) {
         const distances = cadetLocations.map((cadet) => {
-          const distance = calculateDistance(
+          
+          const distance = calculateDistance(//passing arguments(user location and cadet location) to the distance calulating function
             userLocation.latitude,
             userLocation.longitude,
             cadet.latitude,
             cadet.longitude
           );
+          
           return {
             id: cadet.id,
             distance: distance,
